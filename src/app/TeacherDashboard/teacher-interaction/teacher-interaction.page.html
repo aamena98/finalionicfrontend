@@ -1,0 +1,114 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+         Chat
+        </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    
+      <div class="tabs-striped tabs-background-positive tabs-color-light">
+          <ion-tabs>
+            <!-- Tab bar -->
+            <ion-tab-bar slot="top" class="dp">
+           
+              <ion-tab-button (click)="showunviewed()" class="tab-item active" style="font-size: 15px;color:black;" mode="md" tabsHighlight="true" tabsPlacement="bottom">
+                <!-- <ion-icon name="person"></ion-icon> -->
+                <ion-icon name="mail-unread"></ion-icon>
+    
+              </ion-tab-button>
+              <ion-tab-button (click)="showviewed()" style="font-size: 15px;color:black;">
+                  <ion-icon name="mail-open"></ion-icon>
+    
+                <!-- <ion-icon name="call"></ion-icon> -->
+              </ion-tab-button>
+            </ion-tab-bar>
+          </ion-tabs>
+        </div>
+    <br>
+   <br>
+   <div *ngIf="unviewed">
+     
+   <ion-card  *ngFor="let item of inter_arr" id="{{item.fk_u_id}}">
+      <ion-item>
+          <img src="http://localhost:3000/images/{{item.s_profilepic}}" style="width:50px; height: 50px;">
+        <!-- <ion-icon name="mail-unread" slot="start"></ion-icon> -->
+          <ion-button fill="outline" slot="end" (click)="Reply(item)">View</ion-button>
+          <br>
+          <!-- <ion-label><ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date"></ion-datetime></ion-label> -->
+      
+      </ion-item>
+    
+      <ion-card-content>
+         
+          <ion-icon name="contact"></ion-icon>&nbsp;&nbsp;{{item.s_fname+item.s_lname}}<br>
+          <ion-icon name="mail-open"></ion-icon>&nbsp;&nbsp;{{item.m_description}}<br>
+          <ion-icon name="return-right"></ion-icon>  &nbsp;&nbsp;{{item.s_class}}-{{item.s_div}}
+         
+         <!-- &nbsp; &nbsp; &nbsp; &nbsp; <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date" slot="end"></ion-datetime> -->
+      </ion-card-content>
+    </ion-card>
+    
+<!-- 
+    <ion-card  *ngFor="let item of inter_arr" id="{{item.fk_u_id}}">
+      <ion-card-header>
+       <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.m_date" style="background-color:cornflowerblue;color:cornsilk; width:40%;border-radius: 5%;"></ion-datetime>
+      </ion-card-header>
+    
+      <ion-card-content>
+          <ion-label>Name: {{item.s_fname+item.s_lname}}</ion-label><br>
+          <ion-label>Roll No: {{item.s_roll_no}}</ion-label><br>
+          <ion-label>Class: {{item.s_class}}</ion-label><br>
+          <ion-label>Division: {{item.s_div}}</ion-label><br>
+        <ion-label>Message: {{item.m_description}}</ion-label><br>
+        <ion-button color="secondary" (click)="Reply(item)">View</ion-button>  
+        </ion-card-content>
+    </ion-card>-->
+  </div>
+ 
+  <div *ngIf="viewed">
+    
+   <ion-card  *ngFor="let item of viewedmessages" id="{{item.fk_u_id}}">
+      <ion-item>
+          <img src="http://localhost:3000/images/{{item.s_profilepic}}" style="width:50px; height: 50px;">
+        <!-- <ion-icon name="mail-unread" slot="start"></ion-icon> -->
+          <ion-button fill="outline" slot="end" (click)="Reply(item)">View</ion-button>
+          <br>
+          <!-- <ion-label><ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date"></ion-datetime></ion-label> -->
+      
+      </ion-item>
+    
+      <ion-card-content>
+         
+          <ion-icon name="contact"></ion-icon>&nbsp;&nbsp;{{item.s_fname+item.s_lname}}<br>
+          <ion-icon name="mail-open"></ion-icon>&nbsp;&nbsp;{{item.m_description}}<br>
+          <ion-icon name="return-right"></ion-icon>  &nbsp;&nbsp;{{item.s_class}}-{{item.s_div}}
+         
+         <!-- &nbsp; &nbsp; &nbsp; &nbsp; <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date" slot="end"></ion-datetime> -->
+      </ion-card-content>
+    </ion-card>
+    
+<!-- 
+      <ion-card  *ngFor="let item of viewedmessages" id="{{item.fk_u_id}}">
+        <ion-card-header>
+         <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.m_date" style="background-color:cornflowerblue;color:cornsilk; width:40%;border-radius: 5%;"></ion-datetime>
+        </ion-card-header>
+      
+        <ion-card-content>
+            <ion-label>Name: {{item.s_fname+item.s_lname}}</ion-label><br>
+            <ion-label>Roll No: {{item.s_roll_no}}</ion-label><br>
+            <ion-label>Class: {{item.s_class}}</ion-label><br>
+            <ion-label>Division: {{item.s_div}}</ion-label><br>
+          <ion-label>Message: {{item.m_description}}</ion-label><br>
+          <ion-button color="secondary" (click)="Reply(item.m_id)">View</ion-button>  
+          </ion-card-content>
+      </ion-card> -->
+    </div>
+  
+   <br>
+   
+  </ion-content>
+  

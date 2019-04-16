@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Exam Result</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div class="tabs-striped tabs-background-positive tabs-color-light">
+    <ion-tabs>
+      <!-- Tab bar -->
+      <ion-tab-bar slot="top" class="dp">
+        
+        <ion-tab-button (click)="showhalfyearly()" class="tab-item active" style="font-size: 15px;color:black;" mode="md" tabsHighlight="true" tabsPlacement="bottom">
+          <!-- <ion-icon name="person"></ion-icon> -->
+          Half Yearly Exam
+        </ion-tab-button>
+        <ion-tab-button (click)="showfinal()" style="font-size: 15px;color:black;">
+          Final Exam
+          <!-- <ion-icon name="call"></ion-icon> -->
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
+  <br><br><br>
+  <!-- 
+  <ion-label>{{sub1}}</ion-label>:<ion-label>{{mark1}}</ion-label><br>
+  <ion-label>{{sub2}}</ion-label>:<ion-label>{{mark2}}</ion-label><br>
+  <ion-label>{{sub3}}</ion-label>:<ion-label>{{mark3}}</ion-label><br>
+  <ion-label>{{sub4}}</ion-label>:<ion-label>{{mark4}}</ion-label><br>
+  <ion-label>{{sub5}}</ion-label>:<ion-label>{{mark5}}</ion-label><br> -->
+  <div *ngIf="halfflag">
+  <table>
+    <tr>
+      <th>Subject Name</th>
+      <th>Subject Marks</th>
+      <th>Grade</th>
+    </tr>
+    <tr>
+      <td>{{sub1}}</td>
+      <td>{{hmark1}}</td>
+      <td>{{g1}}</td>
+    </tr>
+    <tr>
+      <td>{{sub2}}</td>
+      <td>{{hmark2}}</td>
+      <td>{{g2}}</td>
+    </tr>
+    <tr>
+      <td>{{sub3}}</td>
+      <td>{{hmark3}}</td>
+      <td>{{g3}}</td>
+    </tr>
+    <tr>
+      <td>{{sub4}}</td>
+      <td>{{hmark4}}</td>
+      <td>{{g4}}</td>
+    </tr>
+    <tr>
+      <td>{{sub5}}</td>
+      <td>{{hmark5}}</td>
+      <td>{{g5}}</td>
+    </tr>
+   <tr>
+     <td>Total</td>
+     <td>{{halftotal}}</td>
+     <td>{{finalgrade}}</td>
+   </tr>
+  </table><br><br>
+  <ion-label  id="rcorners1">{{halftotal}}/{{HalfactualTotal}}</ion-label>&nbsp;&nbsp;
+  <ion-label  id="rcorners1">{{halfavg}}%</ion-label>&nbsp;&nbsp;
+  <ion-label  id="rcorners1">PASS</ion-label>
+</div>
+
+
+<div *ngIf="finalflag">
+  <table>
+    <tr>
+      <th>Subject Name</th>
+      <th>Subject Marks</th>
+      <th>Grade</th>
+    </tr>
+    <tr>
+      <td>{{sub1}}</td>
+      <td>{{fmark1}}</td>
+      <td>{{g1}}</td>
+    </tr>
+    <tr>
+      <td>{{sub2}}</td>
+      <td>{{fmark2}}</td>
+      <td>{{g2}}</td>
+    </tr>
+    <tr>
+      <td>{{sub3}}</td>
+      <td>{{fmark3}}</td>
+      <td>{{g3}}</td>
+    </tr>
+    <tr>
+      <td>{{sub4}}</td>
+      <td>{{fmark4}}</td>
+      <td>{{g4}}</td>
+    </tr>
+    <tr>
+      <td>{{sub5}}</td>
+      <td>{{fmark5}}</td>
+      <td>{{g5}}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>{{finaltotal}}</td>
+      <td>{{finalgrade}}</td>
+    </tr>
+  </table><br><br>
+  <ion-label  id="rcorners1">{{finaltotal}}/{{finalactualTotal}}</ion-label>&nbsp;&nbsp;
+  <ion-label  id="rcorners1">{{finalavg}}%</ion-label>&nbsp;&nbsp;
+  <ion-label  id="rcorners1">PASS</ion-label>
+  
+
+</div>
+</ion-content>

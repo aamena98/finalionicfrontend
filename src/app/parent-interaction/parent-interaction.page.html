@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Parent Interaction
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <form novalidate (ngSubmit)="sendmsg()" [formGroup]="myForm">
+  <ion-item>
+    <ion-label>Select the name of Teacher</ion-label>
+    <ion-select placeholder="Select One" [(ngModel)]="fk_t_id" required [class.error1]="!myForm.controls.fk_t_id.valid" formControlName="fk_t_id">
+      <ion-select-option *ngFor="let item of t_arr" value="{{item.fk_u_id}}">{{item.t_name}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item no-lines *ngIf="(myForm.get('fk_t_id').hasError('required')) && myForm.get('fk_t_id').touched">
+      <div class="error"  *ngIf="myForm.get('fk_t_id').hasError('required') && myForm.get('fk_t_id').touched">
+       Please Select teacher name !!
+      </div>
+  </ion-item>
+<br>
+  <ion-item>
+    <ion-label position="floating">Enter your Message</ion-label>
+    <ion-textarea [(ngModel)]="m_description" [class.error1]="!myForm.controls.m_description.valid"  formControlName="m_description" required></ion-textarea>
+  </ion-item>
+  <ion-item no-lines *ngIf="(myForm.get('m_description').hasError('required')) && myForm.get('m_description').touched">
+      <div class="error"  *ngIf="myForm.get('m_description').hasError('required') && myForm.get('m_description').touched">
+       Please Enter message!!
+      </div>
+
+    </ion-item>
+  <br>
+  <ion-button color="secondary" (click)="sendmsg()" [disabled]="myForm.invalid">Send Message</ion-button>  
+</form>
+</ion-content>

@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      LeaveDisplay
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  
+        <div class="tabs-striped tabs-background-positive tabs-color-light">
+            <ion-tabs>
+              <!-- Tab bar -->
+              <ion-tab-bar slot="top" class="dp">
+             
+                <ion-tab-button (click)="showall()" style="font-size: 15px;color:black;">
+                    <ion-icon name="done-all"></ion-icon>
+                  <!-- <ion-icon name="call"></ion-icon> -->
+                </ion-tab-button>
+                <ion-tab-button (click)="showaccepted()" class="tab-item active" style="font-size: 15px;color:black;" mode="md" tabsHighlight="true" tabsPlacement="bottom">
+                  <!-- <ion-icon name="person"></ion-icon> -->
+                  <ion-icon name="checkmark"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button (click)="showrejected()" style="font-size: 15px;color:black;">
+                    <ion-icon name="close"></ion-icon>
+                  <!-- <ion-icon name="call"></ion-icon> -->
+                </ion-tab-button>
+              </ion-tab-bar>
+            </ion-tabs>
+          </div>
+      <br>
+     <br>
+    <div *ngIf="all">
+       <ion-card  *ngFor="let item of l_arr">
+           <ion-card-header>
+           </ion-card-header>
+          <ion-card-content>
+          <ion-label>Roll No:{{item.s_roll_no}}</ion-label><br><br>
+      <ion-label>Name:{{item.s_fname}}</ion-label><br><br>
+      <ion-label>Class:{{item.s_class}}</ion-label><br><br>
+      <ion-label>Division:{{item.s_div}}</ion-label><br><br>
+     <ion-label>Reason:{{item.l_description}}</ion-label><br><br>
+     <ion-button color="secondary" (click)="onaccept(item)">Accept</ion-button>
+     <ion-button color="primary" (click)="onreject(item)">Reject</ion-button>  
+    </ion-card-content>
+  </ion-card> 
+    
+    </div>
+
+     <div *ngIf="accept">
+
+        <ion-card  *ngFor="let item of accept_arr">
+            <ion-card-header>
+            </ion-card-header>
+          
+            <ion-card-content>
+       
+        <ion-label>Roll No:{{item.s_roll_no}}</ion-label><br><br>
+        <ion-label>Name:{{item.s_lname+item.s_fname}}</ion-label><br><br>
+        <ion-label>Class:{{item.s_class}}</ion-label><br><br>
+        <ion-label>Division:{{item.s_div}}</ion-label><br><br> 
+       <ion-label>Reason:{{item.l_description}}</ion-label><br><br>
+       <!-- <ion-button color="secondary" (click)="onaccept(item)">Accept</ion-button> -->
+       <ion-button color="primary" (click)="onreject(item)">Reject</ion-button>  
+      </ion-card-content>
+    </ion-card> 
+      
+    
+      </div>
+
+         
+       <div *ngIf="reject">
+          <ion-card  *ngFor="let item of reject_arr">
+              <ion-card-header>
+              </ion-card-header>
+            
+              <ion-card-content>
+      
+        <ion-label>Roll No:{{item.s_roll_no}}</ion-label><br><br>
+          <ion-label>Name:{{item.s_lname+item.s_fname}}</ion-label><br><br>
+          <ion-label>Class:{{item.s_class}}</ion-label><br><br>
+          <ion-label>Division:{{item.s_div}}</ion-label><br><br> 
+         <ion-label>Reason:{{item.l_description}}</ion-label><br><br> 
+         <ion-button color="secondary" (click)="onaccept(item)">Accept</ion-button>
+         <!-- <ion-button color="primary" (click)="onreject(item)">Reject</ion-button>   -->
+        </ion-card-content>
+      </ion-card> 
+      
+    
+        </div>
+  
+
+</ion-content>

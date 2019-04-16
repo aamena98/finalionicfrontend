@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar  color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Notice</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<div class="tabs-striped tabs-background-positive tabs-color-light">
+  <ion-tabs>
+    <!-- Tab bar -->
+    <ion-tab-bar slot="top" class="dp">
+      
+      <ion-tab-button (click)="shownotice()" class="tab-item active" style="font-size: 15px;color:black;" mode="md" tabsHighlight="true" tabsPlacement="bottom">
+        <!-- <ion-icon name="person"></ion-icon> -->
+        Notice
+      </ion-tab-button>
+      <ion-tab-button (click)="hidecircular()" style="font-size: 15px;color:black;">
+        Circular
+        <!-- <ion-icon name="call"></ion-icon> -->
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</div>
+  <br>
+  <br>
+  <div *ngIf="hidenotice">
+  <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+
+        <ion-card-title style="background-color:cornflowerblue;color:cornsilk; width:60%;border-radius: 5%;">&nbsp;&nbsp;17/01/2019</ion-card-title>
+        <!-- <ion-img src="../../assets/photos/IMG_20190106_230157.jpg"></ion-img> -->
+      </ion-card-header>
+    
+      <ion-card-content>
+        Schools annual function will be conducted on 20th january 2019. All parents are requested to present there.
+      </ion-card-content>
+    </ion-card>
+   <br>
+   <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+
+        <ion-card-title style="background-color:cornflowerblue;color:cornsilk; width:60%;border-radius: 5%;">&nbsp;&nbsp;18/01/2019</ion-card-title>
+        <!-- <ion-img src="../../assets/photos/IMG_20190106_230157.jpg"></ion-img> -->
+      </ion-card-header>
+    
+      <ion-card-content>
+        Schools annual function will be conducted on 20th january 2019. All parents are requested to present there.
+      </ion-card-content>
+    </ion-card>
+   <br>
+   <ion-card>
+      <ion-card-header>
+        <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+
+        <ion-card-title style="background-color:cornflowerblue;color:cornsilk; width:60%;border-radius: 5%;">&nbsp;&nbsp;19/01/2019</ion-card-title>
+        <!-- <ion-img src="../../assets/photos/IMG_20190106_230157.jpg"></ion-img> -->
+      </ion-card-header>
+    
+      <ion-card-content>
+        Schools annual function will be conducted on 20th january 2019. All parents are requested to present there.
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+  <div *ngIf="hidec">
+      <ion-card>
+          <ion-card-header>
+            <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+    
+            <ion-card-title style="background-color:cornflowerblue;color:cornsilk; width:60%;border-radius: 5%;">&nbsp;&nbsp;20/09/2019</ion-card-title>
+            <!-- <ion-img src="../../assets/photos/IMG_20190106_230157.jpg"></ion-img> -->
+          </ion-card-header>
+        
+          <ion-card-content>
+            Schools annual function will be conducted on 20th january 2019. All parents are requested to present there.
+          </ion-card-content>
+        </ion-card>
+       <br>
+       <ion-card>
+          <ion-card-header>
+            <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+    
+            <ion-card-title style="background-color:cornflowerblue;color:cornsilk; width:60%;border-radius: 5%;">&nbsp;&nbsp;18/01/2019</ion-card-title>
+            <!-- <ion-img src="../../assets/photos/IMG_20190106_230157.jpg"></ion-img> -->
+          </ion-card-header>
+        
+          <ion-card-content>
+            Schools annual function will be conducted on 20th january 2019. All parents are requested to present there.
+          </ion-card-content>
+        </ion-card>
+       <br>
+       <ion-card>
+          <ion-card-header>
+            <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+    
+            <ion-card-title style="background-color:cornflowerblue;color:cornsilk; width:60%;border-radius: 5%;">&nbsp;&nbsp;19/01/2019</ion-card-title>
+            <!-- <ion-img src="../../assets/photos/IMG_20190106_230157.jpg"></ion-img> -->
+          </ion-card-header>
+        
+          <ion-card-content>
+            Schools annual function will be conducted on 20th january 2019. All parents are requested to present there.
+          </ion-card-content>
+        </ion-card>
+    
+      </div>
+</ion-content>
+
+

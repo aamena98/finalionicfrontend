@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+         Reply
+        </ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content padding>
+    <br>
+        <ion-label>Question is:</ion-label>
+            <ion-label>{{m_desc}}</ion-label>
+            <h1> </h1>
+        <!-- <ion-label style="background-color:coral;color:cornsilk; width:40%;height:30%;border-radius: 5%;">Messages from Student</ion-label> -->
+            <ion-card  *ngFor="let item of message_arr"  style="background-color:lightcyan">
+                    <ion-card-header>
+                      <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+                
+                      <!-- <ion-card-title style="background-color:cornflowerblue;color:cornsilk; width:60%;border-radius: 5%;">&nbsp;&nbsp;{{item.m_date}}</ion-card-title>
+                      <ion-img src="../../assets/photos/IMG_20190106_230157.jpg"></ion-img> -->
+                
+                   <!-- <ion-label displayFormat="YYYY/MM/DD">{{item.m_date}}</ion-label> -->
+                   <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.m_date" style="background-color:cornflowerblue;color:cornsilk; width:40%;border-radius: 5%;"></ion-datetime>
+                    </ion-card-header>
+                  
+                    <ion-card-content>
+                      <ion-label>Message: {{item.m_description}}</ion-label><br>
+                      </ion-card-content>
+                      </ion-card>
+                      <!-- <ion-label style="background-color:coral;color:cornsilk; width:40%;border-radius: 5%;">Replies already given</ion-label> -->
+                <ion-card  *ngFor="let item of reply_arr"  style="background-color:mistyrose;" >
+                        <ion-card-header>
+                          <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+                    
+                          <!-- <ion-card-title style="background-color:cornflowerblue;color:cornsilk; width:60%;border-radius: 5%;">&nbsp;&nbsp;{{item.m_date}}</ion-card-title>
+                          <ion-img src="../../assets/photos/IMG_20190106_230157.jpg"></ion-img> -->
+                    
+                       <!-- <ion-label displayFormat="YYYY/MM/DD">{{item.m_date}}</ion-label> -->
+                       <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date" style="background-color:cornflowerblue;color:cornsilk; width:40%;border-radius: 5%;"></ion-datetime>
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                          <ion-label>Message: {{item.r_description}}</ion-label><br>
+                          </ion-card-content>
+                          </ion-card>
+                          
+            <ion-item>
+        <ion-label position="floating">Enter your Reply</ion-label>
+        <ion-textarea [(ngModel)]="m_reply"></ion-textarea>
+    </ion-item><br>
+    
+    <!-- <ion-button color="secondary" (click)="sendReply()">Send Reply</ion-button>   -->
+    <ion-button expand="block" fill="outline" color="primary" (click)="sendReply()">Send reply        <ion-icon name="send"></ion-icon> 
+      </ion-button>
+</ion-content>

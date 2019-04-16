@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+         Attendance
+        </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+    <div *ngIf="div1">
+<ion-item>
+    <ion-label>Enter Class</ion-label>
+  <ion-select  placeholder="Enter Class" [(ngModel)]="s_class" name="s_class">
+    <ion-select-option *ngFor="let item of class_arr" [value]="item">
+        {{item}}
+    </ion-select-option>
+  </ion-select>
+</ion-item>
+<br>
+
+<ion-item>
+    <ion-label>Enter Division</ion-label>
+  <ion-select  placeholder="Enter Division" [(ngModel)]="s_div" name="s_div">
+<ion-select-option *ngFor="let item of div_arr" [value]="item">
+    {{item}}
+</ion-select-option>
+  </ion-select>
+</ion-item>
+<br>
+  <ion-item>
+  <ion-label>Enter Date:</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="s_a_date" name="s_a_date"></ion-datetime>
+  <ion-icon name="calendar" right></ion-icon>
+</ion-item>
+<br>
+<ion-button style="width:80%; border-radius:20%;" class="center ion-buttons " (click)="getStudents()">Get Students</ion-button>
+</div>
+
+<div *ngIf="div2">
+
+  <ion-label><h1>Students List</h1></ion-label>
+  <br>
+  <table class="table">
+    <thead>
+      <th> </th>
+      <th>Roll Number</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </thead>
+    <tr  *ngFor="let item of s_arr;let i=index">
+      <td>
+          <ion-checkbox color="primary" checked="true"  name="a_status"></ion-checkbox>
+      </td>
+      <td>
+               {{item.s_roll_no}}
+      </td>
+                  <td>
+                    {{item.s_sname}}
+                  </td>
+                  <td>
+                      {{item.s_fname}}
+                              </td>
+                               </tr>
+
+  </table>
+  <br><br>
+  <ion-button style="width:80%; border-radius:20%;" class="center ion-buttons " (click)="addAttendance()">Add Attendance</ion-button>
+</div>
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" >
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>LEAVE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form novalidate (ngSubmit)="sendLeave()" [formGroup]="myForm">
+    <ion-item>
+        <ion-label>From Date:</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="l_fromdate"  [class.error1]="!myForm.controls.l_fromdate.valid" formControlName="l_fromdate" required name="l_fromdate"
+        [min]="minDate"></ion-datetime>
+        <ion-icon name="calendar" right></ion-icon>
+        
+      </ion-item>
+      <ion-item no-lines *ngIf="(myForm.get('l_fromdate').hasError('required')) && myForm.get('l_fromdate').touched">
+      <div class="error"  *ngIf="myForm.get('l_fromdate').hasError('required') && myForm.get('l_fromdate').touched">
+          Please Enter date !!
+      </div>
+    </ion-item>
+      <ion-item>
+          <ion-label>To Date:</ion-label>
+          <!-- <ion-datetime display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD"></ion-datetime> -->
+          <ion-datetime displayFormat="MM/DD/YYYY" [class.error1]="!myForm.controls.l_todate.valid" formControlName="l_todate" required name="l_todate"
+        [min]="minDate" [(ngModel)]="l_todate"></ion-datetime>
+        <ion-icon name="calendar" right></ion-icon>
+        
+        </ion-item>
+        <ion-item no-lines *ngIf="(myForm.get('l_todate').hasError('required')) && myForm.get('l_todate').touched">
+        <div class="error"  *ngIf="myForm.get('l_todate').hasError('required') && myForm.get('l_todate').touched">
+            Please Enter date !!
+        </div>
+      </ion-item>
+        
+      <ion-item>
+          <ion-label>Leave Type:</ion-label>
+          <ion-select placeholder="Select One" [(ngModel)]="l_type" [class.error1]="!myForm.controls.l_type.valid" formControlName="l_type" required>
+              <ion-select-option value="sick">Sick Leave</ion-select-option>
+              <ion-select-option value="one">One day Leave</ion-select-option>
+              <ion-select-option value="half">Half day Leave</ion-select-option>
+              <ion-select-option value="others">Others</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item no-lines *ngIf="(myForm.get('l_type').hasError('required')) && myForm.get('l_type').touched">
+            <div class="error"  *ngIf="myForm.get('l_type').hasError('required') && myForm.get('l_type').touched">
+             Please Select leave type !!
+            </div>
+        </ion-item>
+
+          <ion-item>
+              <ion-label position="floating">Description</ion-label>
+              <ion-textarea [(ngModel)]="l_description" required style="height:100px;" formControlName="l_description" ></ion-textarea>
+            </ion-item>
+            <ion-item no-lines *ngIf="(myForm.get('l_description').hasError('required')) && myForm.get('l_description').touched">
+                <div class="error"  *ngIf="myForm.get('l_description').hasError('required') && myForm.get('l_description').touched">
+                 Please enter description!!
+                </div>
+            </ion-item>
+          
+                <ion-button expand="block" fill="outline" color="primary" [disabled]="myForm.invalid" (click)="sendLeave()">Request Leave
+                <ion-icon name="send"></ion-icon> 
+              </ion-button>
+            </form>
+          </ion-content>
+        
+          <!-- useCurrentTimeAsDefaultValue="true" -->
+          <!-- [min]="today" -->

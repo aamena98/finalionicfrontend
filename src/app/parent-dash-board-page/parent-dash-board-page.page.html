@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title style="font-size: 1.5em" padding>MY DASHBOARD</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content no-padding>
+    <ion-card class="myCard" (click)="onMyprofile()" style="margin-bottom: 5%; margin:0%; height:20%; " *ngFor="let item of stu_arr">
+      
+        <img src="http://localhost:3000/images/{{item.s_profilepic}}"/>
+        <div class="myOverlay" >
+          <br>
+  
+           <div class="card-title"><b style="font-size: large; color:black; ">{{item.s_fname}} {{item.s_sname}}</b></div>
+           <div class="card-subtitle"><b style="font-size: large; color:black;">Std : </b>{{item.s_class}}-{{item.s_div}}</div>
+           <!-- <div class="card-subtitle"><b style="font-size: medium">Div : </b>{{item.s_div}}</div> -->
+           <div class="card-subtitle" ><b style="font-size: large; color:black;">Roll No : </b>{{item.s_roll_no}}</div>
+           <br> 
+           <p></p>
+        </div>
+      
+    </ion-card>
+    
+
+<ion-grid style="border: 2px  gray; grid-auto-flow: row ">
+  <ion-row>
+    <ion-col col-sm-3>
+      <a (click)="onMyprofile()">
+      <ion-card text-center no-padding color="light">
+        <ion-icon name="person"></ion-icon>
+        <h6>My profile</h6>
+      </ion-card>
+    </a>
+    </ion-col>
+  
+    <ion-col col-sm-3>
+        <a (click)="onAttendance()">
+        <ion-card text-center no-padding color="light">
+          <ion-icon name="grid"></ion-icon>
+          <h6>Attendance</h6>
+        </ion-card>
+        </a>
+      </ion-col>
+  </ion-row> 
+
+    <ion-row>
+      <ion-col>
+          <a (click)="onAttendance()">
+        <ion-card text-center no-padding color="light">
+          <ion-icon name="list"></ion-icon>
+          <h6>Remark</h6>
+        </ion-card>
+        </a>
+      </ion-col>
+      <ion-col>
+          <a (click)="onAttendance()">
+        <ion-card text-center no-padding color="light">
+            <ion-icon name="folder"></ion-icon>
+            <h6>Syllabus</h6>
+          </ion-card>
+          </a>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+          <a (click)="onnotice()">
+        <ion-card text-center no-padding color="light">
+          <ion-icon name="notifications-outline"></ion-icon>
+          <h6>Notice</h6>
+        </ion-card>
+        </a>
+      </ion-col>
+      <ion-col>
+        <a (click)="onTimetable()">
+          <ion-card text-center no-padding color="light">
+            <ion-icon name="calendar"></ion-icon>
+            <h6>Time Table</h6>
+          </ion-card>
+        </a>
+        </ion-col>
+    </ion-row>
+
+      <ion-row>
+        <ion-col>
+            <a (click)="onHomeWork()">
+          <ion-card text-center no-padding color="light">
+            <ion-icon name="clipboard" ></ion-icon>
+            <h6>Home<br>Work</h6>
+          </ion-card>
+            </a>
+        </ion-col>
+        <ion-col>
+            <a (click)="onHoliday()">
+            <ion-card text-center no-padding color="light">
+              <ion-icon name="list-box"></ion-icon>
+              <h6>Holiday<br>List</h6>
+            </ion-card>
+            </a>
+          </ion-col>
+      </ion-row>
+
+        <ion-row>
+          <ion-col>
+              <a (click)="onPastpapers()">
+            <ion-card text-center no-padding color="light" (click)="onPastpapers()">
+              <ion-icon name="paper"></ion-icon>
+              <h6>Past <br>Papers</h6>
+            </ion-card>
+            </a>
+          </ion-col>
+          <ion-col>
+              <ion-card text-center no-padding color="light">
+                <ion-icon name="photos"></ion-icon>
+                <h6>Photo<br>Gallery</h6>
+              </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <a (click)="onTeacherInteraction()">
+              <ion-card text-center no-padding color="light">
+                <ion-icon name="text"></ion-icon>
+                <h6>Teacher<br>Interaction</h6>
+              </ion-card>
+              </a>
+            </ion-col>
+            <ion-col>
+                <a (click)="onLeave()">
+                <ion-card text-center no-padding color="light" (click)="onLeave()">
+                  <ion-icon name="checkbox"></ion-icon>
+                  <h6>My<br>Leave</h6>
+                </ion-card>
+                </a>
+              </ion-col>
+        </ion-row>
+
+          <ion-row>
+              <ion-col>
+                  <a (click)="onExamresult()">
+                <ion-card text-center no-padding color="light">                  
+                  <ion-icon name="copy"></ion-icon>
+                  <h6>Exam<br> Result</h6>
+                </ion-card>
+                </a>
+              </ion-col>
+              
+              <ion-col>
+                  <a (click)="onLocation()">
+                      <ion-card text-center no-padding color="light">
+                        <ion-icon name="pin"></ion-icon>
+                        <h6>school<br>Location</h6>
+                      </ion-card>
+                      </a>
+              </ion-col>
+                
+            </ion-row>
+          
+            <ion-row>
+                <ion-col>
+                    <a (click)="onChat()">
+                  <ion-card text-center no-padding color="light">                  
+                    <ion-icon name="contacts"></ion-icon>
+                    <h6>Chats</h6>
+                  </ion-card>
+                  </a>
+                </ion-col>
+                  
+              </ion-row>
+            
+</ion-grid>
+</ion-content>    
+
+
+
+
+

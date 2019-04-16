@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Homework</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+        <ion-card  style="width:100%; margin-left: 1px;" *ngFor="let item of hw_arr">
+        <ion-card-header>
+          <ion-card-title style="width:fit-content;color:white;background-color:cornflowerblue;">
+            {{item.h_date | date}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <h2><b style="color: black">Subject : </b>{{item.h_subject}}</h2><br>
+            <h4><b style="color: black">Uploaded By : </b>{{item.h_uploadedby}}</h4><br>
+            <h4><b style="color: black">Description : </b>{{item.h_description}}</h4>
+        </ion-card-content>
+

@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start" >
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Add Homework</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content padding>
+    <ion-item>
+        <ion-label>Enter Class</ion-label>
+      <ion-select  placeholder="Enter Class" [(ngModel)]="h_class" name="h_class">
+        <ion-select-option *ngFor="let item of class_arr" [value]="item">
+            {{item}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    
+    <ion-item>
+        <ion-label>Enter Division</ion-label>
+      <ion-select  placeholder="Enter Division" [(ngModel)]="h_div" name="h_div">
+    <ion-select-option *ngFor="let item of div_arr" [value]="item">
+        {{item}}
+    </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+      <ion-item>
+      <ion-label>Enter Date:</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="h_date" name="h_date"></ion-datetime>
+      <ion-icon name="calendar" right></ion-icon>
+    </ion-item>
+    <br>
+    <ion-item>
+        <ion-label>Enter Subject</ion-label>
+   
+      <ion-input type="text" [(ngModel)]="h_subject"></ion-input>
+      </ion-item>
+    <br>
+    <ion-label>Enter HomeWork Description</ion-label><br>  
+    <ion-item>
+           
+      <ion-textarea  [(ngModel)]="h_description"></ion-textarea>
+    </ion-item>
+<br>
+    <ion-button style="width:80%; border-radius:20%;" class="center ion-buttons " (click)="addhw()">Add Homework</ion-button>
+    
+</ion-content>

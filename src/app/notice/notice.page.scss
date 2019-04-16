@@ -1,0 +1,12 @@
+// .tabbar a[aria-selected=true] {
+//     border-top: 1px;
+//     border-style: solid;    
+// }
+
+.tab-button-md[tabsHighlight=true] .tab-highlight {
+    background-color: red;
+}
+.dp[selected-tab=true] {
+    color: #fff; /*your  text color */
+    background: #808080; /* your background color*/
+}

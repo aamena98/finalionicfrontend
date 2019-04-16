@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Notes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <ion-list>
+        <ion-item>
+          <div text-left class="item-note" slot="end">
+          <b style="color: red">18/09/2018</b><br>
+           MATH:Complete The Graph!
+          </div>
+        </ion-item>
+      </ion-list> -->
+
+      <ion-card  style="width:100%; margin-left: 1px;" *ngFor="let item of notes_arr">
+        <ion-card-header>
+          <ion-card-title style="width:fit-content;color:white;background-color:cornflowerblue;">
+            {{item.notes_date | date}}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <h2><b style="color: black">Subject : </b>{{item.notes_title}}</h2><br>
+            <h4><b style="color: black">Uploaded By : </b>{{item.notes_uploadedby}}</h4><br>
+            <h4><b style="color: black">Description : </b>{{item.notes_description}}</h4>
+            
+        </ion-card-content>
+        <!-- <ion-icon name="archive"></ion-icon><a href  [routerDirection]="'root'" routerLink="/openpdf" target="_blank">Open</a> -->
+        <!-- <ion-button expand="full" (click)="openLocalPdf()">Open Local PDF</ion-button> -->
+        <!-- <ion-button expand="full" (click)="downloadAndOpenPdf()">Download and Open PDF</ion-button> -->
+        <a href="{{item.notes_attachment}}" target="_blank"><ion-button expand="full">Open PDF</ion-button></a>
+
+          <!-- <a href=''><h2 text-left>Click Here</h2></a>  -->
+        <!-- <ion-icon name="document"></ion-icon> -->
+      </ion-card>
+</ion-content>

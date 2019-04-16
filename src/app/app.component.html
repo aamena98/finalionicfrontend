@@ -8,14 +8,205 @@
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+          
+            
+  
+          <!-- <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <ion-icon slot="start" [name]="p.icon"></ion-icon>
               <ion-label>
                 {{p.title}}
               </ion-label>
             </ion-item>
+          </ion-menu-toggle> -->
+
+        
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/attendance">
+              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+              <ion-label>
+                Attendance
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+
+          
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/parent-dash-board-page">
+              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+              <ion-label>
+                Parent DashBoard
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/student-timetable">
+              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+              <ion-label>
+                TimeTable
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/notes">
+              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+              <ion-label>
+                Notes
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+
+          
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/home-work">
+              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+              <ion-label>
+                HomeWork
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" routerLink="/add-homework">
+                <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                <ion-label>
+                  Add HomeWork
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle> 
+
+            
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" routerLink="/holidays">
+                <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                <ion-label>
+                  Holidays
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle> 
+
+
+            
+            <ion-menu-toggle auto-hide="false">
+                <ion-item [routerDirection]="'root'" routerLink="/take-attendance">
+                  <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                  <ion-label>
+                    Take Attendance
+                  </ion-label>
+                </ion-item>
+              </ion-menu-toggle> 
+  
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" routerLink="/profile-page">
+                <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                <ion-label>
+                  Profile page
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle> 
+  
+
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" routerLink="/notice">
+                <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                <ion-label>
+                  Notice
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle> 
+
+            
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/parent-interaction">
+              <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+              <ion-label>
+                Parent Interaction
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+
+          
+    <!--     <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/interaction-display">
+               <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                Interaction Display
+              </ion-label>
+            </ion-item>
           </ion-menu-toggle>
+          
+        --> 
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/login-page">
+              <!-- <ion-icon slot="start" [name]=""></ion-icon> -->
+              <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
+              <ion-label>
+                LogIn
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+ 
+          
+          <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" routerLink="/teacher-interaction">
+                <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                <ion-label>
+                  Teacher Interaction
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle> 
+  
+            <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" routerLink="/leave">
+                <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                <ion-label>
+                  Leave
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle> 
+
+
+            <ion-menu-toggle auto-hide="false">
+                <ion-item [routerDirection]="'root'" routerLink="/leave-display">
+                  <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                  <ion-label>
+                    Leave Display
+                  </ion-label>
+                </ion-item>
+              </ion-menu-toggle> 
+
+
+         <!--     <ion-menu-toggle auto-hide="false">
+                <ion-item [routerDirection]="'root'" routerLink="/my-demo">
+                 <ion-icon slot="start" [name]="p.icon"></ion-icon> 
+                  <ion-label>
+                    My demo
+                  </ion-label>
+                </ion-item>
+              </ion-menu-toggle> 
+             --> 
+
+            <ion-menu-toggle auto-hide="false">
+              <ion-item [routerDirection]="'root'" routerLink="/exam-result">
+                <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                <ion-label>
+                  Exam Result
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle> 
+            <ion-menu-toggle auto-hide="false">
+                <ion-item [routerDirection]="'root'" routerLink="/parent-chat-display">
+                  <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                  <ion-label>
+                  StudentChat Display
+                  </ion-label>
+                </ion-item>
+              </ion-menu-toggle> 
+  
+  
         </ion-list>
       </ion-content>
     </ion-menu>
