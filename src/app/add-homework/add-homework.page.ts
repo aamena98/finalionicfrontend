@@ -10,7 +10,7 @@ import { Homework } from '../../Classes/Homework';
 })
 export class AddHomeworkPage implements OnInit {
 
-  class_arr:number[]=[1,2,3,4,5,6,7,8,9,10];
+class_arr:number[]=[1,2,3,4,5,6,7,8,9,10];
 div_arr:string[]=['A','B','C'];
 h_class:number;
 h_div:string;
@@ -19,10 +19,15 @@ h_description:string;
 h_upload:string;
 h_subject:string;
 h_arr:Homework[]=[];
-  constructor(private _ser:HomeworkserviceService) { }
+  constructor(private _ser:HomeworkserviceService,private _route:Router) { }
 
   ngOnInit() {
   }
+  onback()
+  {
+    this._route.navigate(['/teacher-dashboarf']);
+  }
+
   addhw()
   {
     this.h_upload="Sangeeta";

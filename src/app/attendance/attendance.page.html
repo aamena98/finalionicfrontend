@@ -1,29 +1,51 @@
-
 <ion-header>
-  <ion-toolbar color="primary">
-     <ion-buttons slot="start"> 
-         <ion-menu-button></ion-menu-button>
+    <ion-toolbar color="primary">
+       <ion-buttons slot="start"> 
+        <ion-icon name="arrow-round-back" (click)="onback()" style="height:30px;width:30px;"></ion-icon>
+      </ion-buttons>
+           <ion-title>{{viewTitle}}</ion-title>
+       <ion-buttons end>
+           <!-- <button ion-button [disabled]="isToday" (click)="today()">Today</button> -->
+           <!-- <button ion-button (click)="changeMode('month')">M</button>
+           <button ion-button (click)="changeMode('week')">W</button>
+           <button ion-button (click)="changeMode('day')">D</button> -->
+           <!-- <button ion-button (click)="loadEvents()">Load Events</button> -->
        </ion-buttons>
-         <ion-title>{{viewTitle}}</ion-title>
-     <ion-buttons end>
-         <!-- <button ion-button [disabled]="isToday" (click)="today()">Today</button> -->
-         <!-- <button ion-button (click)="changeMode('month')">M</button>
-         <button ion-button (click)="changeMode('week')">W</button>
-         <button ion-button (click)="changeMode('day')">D</button> -->
-         <!-- <button ion-button (click)="loadEvents()">Load Events</button> -->
-     </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="has-header">
-  <calendar [eventSource]="eventSource"
-            [calendarMode]="calendar.mode"
-            [currentDate]="calendar.currentDate"
-            (onCurrentDateChanged)="onCurrentDateChanged($event)"
-            (onEventSelected)="onEventSelected($event)"
-            (onTitleChanged)="onViewTitleChanged($event)"
-            (onTimeSelected)="onTimeSelected($event)"
-            step="30">
-  </calendar>
-
-</ion-content>
+    </ion-toolbar>
+  </ion-header>
+  <div></div>
+  <ion-content class="has-header">
+      <div>
+          <table>
+          <tr>
+            <td>Total Working Days </td>
+            <td>30</td>
+          </tr>  
+          <tr>
+            <td> Total Present Days</td>
+      <td>{{p_days}}</td>
+          </tr>
+          <tr>
+            <td>
+                Total Absent Days
+            </td>
+            <td>
+                {{a_days}}
+            </td>
+          </tr>
+          </table>
+        </div>
+      <div>
+        <br>
+    <calendar [eventSource]="eventSource"
+              [calendarMode]="calendar.mode"
+              [currentDate]="calendar.currentDate"
+              (onCurrentDateChanged)="onCurrentDateChanged($event)"
+              (onEventSelected)="onEventSelected($event)"
+              (onTitleChanged)="onViewTitleChanged($event)"
+              (onTimeSelected)="onTimeSelected($event)"
+              step="30">
+            </calendar>
+            </div>
+        
+  </ion-content>

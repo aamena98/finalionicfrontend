@@ -8,7 +8,7 @@
   </ion-header>
     
   <ion-content no-padding>
-      <ion-card class="myCard" style="margin-bottom: 5%; margin:0%; height:20%; ">
+ <!--     <ion-card class="myCard" style="margin-bottom: 5%; margin:0%; height:20%; "> -->
 <!--         
           <img src="http://localhost:3000/images/{{item.s_profilepic}}"/>
           <div class="myOverlay" >
@@ -22,75 +22,87 @@
              <p></p>
           </div>
          -->
-      </ion-card>
+      <!-- </ion-card> -->
       
   
   <ion-grid style="border: 2px  gray; grid-auto-flow: row ">
     <ion-row>
       <ion-col col-sm-3>
-        <a>
+        <a (click)="ondashoBoard()">
         <ion-card text-center no-padding color="light">
           <ion-icon name="person"></ion-icon>
-          <h6>My profile</h6>
+          <h6>My<br> profile</h6>
         </ion-card>
       </a>
       </ion-col>
     
       <ion-col col-sm-3>
+          <a (click)="onattendance()">
           <ion-card text-center no-padding color="light">
             <ion-icon name="grid"></ion-icon>
-            <h6>Attendance</h6>
+            <h6>Take Attendance</h6>
           </ion-card>
+          </a>
         </ion-col>
     </ion-row> 
   
       <ion-row>
         <ion-col>
+            <a (click)="onremark()">
           <ion-card text-center no-padding color="light">
             <ion-icon name="list"></ion-icon>
-            <h6>Remark</h6>
+            <h6>Add Remark</h6>
           </ion-card>
+          </a>
         </ion-col>
         <ion-col>
+            <a (click)="onsyllabus()">
             <ion-card text-center no-padding color="light">
               <ion-icon name="folder"></ion-icon>
               <h6>Syllabus</h6>
             </ion-card>
+            </a>
         </ion-col>
       </ion-row>
   
       <ion-row>
         <ion-col>
+            <a (click)="onNotice()">
           <ion-card text-center no-padding color="light" >
             <ion-icon name="notifications-outline"></ion-icon>
             <h6>Notice</h6>
           </ion-card>
+          </a>
         </ion-col>
         <ion-col>
+            <a (click)="ontimetable()">
             <ion-card text-center no-padding color="light" >
               <ion-icon name="calendar"></ion-icon>
               <h6>Time Table</h6>
             </ion-card>
+            </a>
           </ion-col>
       </ion-row>
   
         <ion-row>
           <ion-col>
-            
+              <a (click)="onhw()">
             <ion-card text-center no-padding color="light" >
               <ion-icon name="clipboard" ></ion-icon>
-              <h6>Home<br>Work</h6>
+              <h6>Give Home<br>Work</h6>
             </ion-card>
-              
+              </a>
           </ion-col>
           <ion-col>
+              <a (click)="onholiday()">
               <ion-card text-center no-padding color="light">
                 <ion-icon name="list-box"></ion-icon>
                 <h6>Holiday<br>List</h6>
               </ion-card>
+              </a>
             </ion-col>
         </ion-row>
-  
+<!--   
           <ion-row>
             <ion-col>
               <ion-card text-center no-padding color="light" >
@@ -105,22 +117,26 @@
                 </ion-card>
               </ion-col>
           </ion-row>
-  
+   -->
           <ion-row>
               <ion-col>
+                  <a (click)="onparentinteraction()">
                 <ion-card text-center no-padding color="light">
                   <ion-icon name="text"></ion-icon>
-                  <h6>Teacher<br>Interaction</h6>
+                  <h6>Parent <br>Interaction</h6>
                 </ion-card>
+                </a>
               </ion-col>
               <ion-col>
+                  <a (click)="onleave()">
                   <ion-card text-center no-padding color="light" >
                     <ion-icon name="checkbox"></ion-icon>
-                    <h6>My<br>Leave</h6>
+                    <h6>Approve<br>Leave</h6>
                   </ion-card>
+                  </a>
                 </ion-col>
           </ion-row>
-  
+<!--   
             <ion-row>
                 <ion-col>
                   <ion-card text-center no-padding color="light">
@@ -137,7 +153,7 @@
                 </ion-col>
                   
               </ion-row>
-            
+             -->
   </ion-grid>
   </ion-content>    
   

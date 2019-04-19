@@ -14,7 +14,11 @@ export class HomeWorkPage implements OnInit {
   hw_arr:any[];
   
   constructor(public _router:Router,public _ser:HomeworkserviceService) { }
-
+  onback()
+  {
+      this._router.navigate(['/parent-dash-board-page']);
+  }
+  
   ngOnInit() {
    // this.user_id=localStorage.getItem('user_id');
    this.class_id=parseInt(localStorage.getItem('class'));

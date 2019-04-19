@@ -1,0 +1,36 @@
+.alldayeventindayview
+{
+    overflow:hidden;
+    background-color:red;
+    color:white;
+    height:auto;
+    width:auto;
+    padding:0;
+}
+
+.monthview-selected[_ngcontent-c6] {
+    background-color: hsl(343, 100%, 30%);
+    color: white;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  #rcorners1 {
+    border-radius: 50px;
+    background:dodgerblue;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;  
+  }

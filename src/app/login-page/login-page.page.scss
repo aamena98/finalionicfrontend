@@ -1,0 +1,22 @@
+// page-login-page
+// {
+//     .background
+//     {
+//         background-image: url('../../assets/photos/backimg.jpg');
+//     }
+// }
+
+ion-content{
+    --background: url(../../assets/photos/backimg.jpg);
+    // --background-repeat: no-repeat;
+    // --background-size: cover;  
+    }
+.scroll-content
+{
+align-content: center;
+}
+ion-card.card
+{
+    box-shadow: none;
+    background: rgba(0,0,0,0.5); 
+}

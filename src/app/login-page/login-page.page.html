@@ -1,14 +1,19 @@
-<ion-header >
+<!-- <ion-header >
   <ion-toolbar color="primary">
-    <ion-title>LOGIN</ion-title>
+    <ion-title>LOGIN</ion-title> -->
     <!-- <ion-img mat-card-img-sm src="../../assets/photos/logo.jpg"></ion-img> -->
-  </ion-toolbar>
-</ion-header>
+  <!-- </ion-toolbar>
+</ion-header> -->
 
 
-<ion-content padding>
+<ion-content class="background">
   <!-- <div class="form-control"> -->
-    <br>
+    <br><br>
+    <ion-card class="scroll-content" class="card">
+  <ion-card-header>
+    LOGIN
+  </ion-card-header> 
+  <ion-card-content>
   <form novalidate (ngSubmit)="login()" [formGroup]="myForm">
   <ion-item no-lines>
   <ion-label color="primary">Userid</ion-label> 
@@ -16,13 +21,13 @@
   </ion-item>
   <ion-item no-lines *ngIf="(myForm.get('user_id').hasError('minlength') || myForm.get('user_id').hasError('required')) && myForm.get('user_id').touched">
     <div class="error"  *ngIf="myForm.get('user_id').hasError('required') && myForm.get('user_id').touched">
-     Please Enter user id !!
+     *Please Enter user id !!
     </div>
     <div class="error" *ngIf="myForm.get('user_id').hasError('minlength') && myForm.get('user_id').touched">
-        Minimum 8 Characters !!
+        *Minimum 8 Characters !!
     </div>
     <div class="error" *ngIf="myForm.get('user_id').hasError('pattern') && myForm.get('user_id').touched">
-        Just use digits !!
+        *Just use digits !!
       </div>
   </ion-item>
 
@@ -33,18 +38,18 @@
   <ion-icon name="lock" item-start class="text-primary"></ion-icon> -->
   <ion-item no-lines>
   <ion-label color="primary">Password</ion-label>
-  <ion-input minlength="5" type="{{type}}" [class.error1]="!myForm.controls.user_password.valid" formControlName="user_password"  [(ngModel)]="user_password" name="user_password" required></ion-input>
+  <ion-input minlength="3" type="{{type}}" [class.error1]="!myForm.controls.user_password.valid" formControlName="user_password"  [(ngModel)]="user_password" name="user_password" required></ion-input>
   <ion-icon [name]="icon" item-right (click)="showPassword()"></ion-icon>
   </ion-item>
   <ion-item no-lines *ngIf="(myForm.get('user_password').hasError('minlength') || myForm.get('user_password').hasError('required')) && myForm.get('user_password').touched">
       <div class="error"  *ngIf="myForm.get('user_password').hasError('required') && myForm.get('user_password').touched">
-       Please Enter user id !!
+       *Please Enter user id !!
       </div>
       <div class="error" *ngIf="myForm.get('user_password').hasError('minlength') && myForm.get('user_password').touched">
-        Minimum 6 Characters !!
+        *Minimum 6 Characters !!
       </div>
       <div class="error" *ngIf="myForm.get('user_password').hasError('maxlength') && myForm.get('user_password').touched">
-          Maximum 12 Characters !!
+          *Maximum 12 Characters !!
         </div>
     </ion-item>
 
@@ -58,7 +63,7 @@
   </ion-item>
   <ion-item no-lines *ngIf="(myForm.get('user_type').hasError('minlength') || myForm.get('user_type').hasError('required')) && myForm.get('user_password').touched">
       <div class="error"  *ngIf="myForm.get('user_type').hasError('required') && myForm.get('user_type').touched">
-       Please Select user type !!
+       *Please Select user type !!
       </div>
   </ion-item>
   <br>
@@ -67,7 +72,10 @@
 
   <br>
   <br>
-<a href="/forget-password"><b>Forget Password?</b></a><br><br><a href="/change-password"><b>Change Password?</b></a> 
+<a href="/forget-password"><b>Forget Password?</b></a><br><br> 
+</form>
+</ion-card-content> 
+</ion-card>
 
-  <!-- </div> -->
-  
+<!-- </div> -->
+ 

@@ -55,7 +55,11 @@ j:number=0;
   ngOnInit() {
   }
 
-
+  onback()
+  {
+      this._route.navigate(['/teacher-dashboarf']);
+  }
+  
   getStudents()
   {
         this._ser.getStudentByclassdiv(this.s_class,this.s_div).subscribe(

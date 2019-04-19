@@ -28,7 +28,11 @@ export class ChangePasswordPage implements OnInit {
   flag:boolean=true;
   password:String;
   userId:String;
-  
+  onback()
+{
+    this._router.navigate(['/parent-dash-board-page']);
+}
+
   showPassword() 
   {
     this.showPass = !this.showPass;

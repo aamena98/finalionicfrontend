@@ -1,3 +1,4 @@
+declare var require:any;
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TeacherInteractionService } from '../../Services/teacher-interaction.service';
@@ -5,8 +6,8 @@ import { interact } from '../../../Classes/interaction';
 //import { Student } from '../../../Classes/student';
 import { interact_display } from '../../../Classes/Interact_Display';
 import { reply_Message } from '../../../Classes/Reply_Message';
-// var moment = require('moment');
-// moment().format();
+var moment = require('moment');
+moment().format();
 @Component({
   selector: 'app-teacher-interaction',
   templateUrl: './teacher-interaction.page.html',
@@ -58,7 +59,7 @@ constructor(private _ser:TeacherInteractionService,private _route:Router) { }
   sendReply(m_id:number,fk_u_id:number)
   {
     //console.log(m_id);
-  //this.m_date=moment(Date.now()).format("YYYY-MM-DD");
+  this.m_date=moment(Date.now()).format("YYYY-MM-DD");
     this._ser.sendReplyMessage(new reply_Message(m_id,this.m_reply,fk_u_id,this.m_date,this.fk_t_id)).subscribe(
       (data:any)=>
       {
@@ -83,6 +84,11 @@ this._ser.getViewedMessages(this.fk_t_id).subscribe(
 );
 
   }
+  onback()
+{
+    this._route.navigate(['/teacher-dashboarf']);
+}
+
   showunviewed()
   {
 this.unviewed=true;

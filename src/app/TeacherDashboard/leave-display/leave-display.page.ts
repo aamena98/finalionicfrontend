@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LeaveService } from "../../Services/leave.service";
 import { Leave } from "../../../Classes/Leave";
 import { Leave_Display } from "../../../Classes/Leave_display";
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-leave-display',
   templateUrl: './leave-display.page.html',
@@ -17,7 +18,7 @@ export class LeaveDisplayPage implements OnInit {
 
   accept_arr:Leave_Display[]=[];
   reject_arr:Leave_Display[]=[];
-  constructor(private _ser:LeaveService) { }
+  constructor(private _ser:LeaveService,private _route:Router) { }
 
   ngOnInit() {
     this._ser.getAllInfo(this.fk_t_id).subscribe(
@@ -29,10 +30,10 @@ export class LeaveDisplayPage implements OnInit {
     }
     onaccept(item:Leave)
     {
-      this._ser.updateAcceptStatus(item).subscribe(
-        (data:any)=>{
-          console.log(data);
-     //     this.accept_arr=data;
+     this._ser.updateAcceptStatus(item).subscribe(
+       (data:any)=>{
+         console.log(data);
+         this.accept_arr=data;
         }
       );
     }
@@ -41,7 +42,7 @@ export class LeaveDisplayPage implements OnInit {
       this._ser.updateRejectStatus(item).subscribe(
         (data:any)=>{
           console.log(data);
-       //   this.reject_arr=data;
+         this.reject_arr=data;
         }
       );
     }
@@ -69,6 +70,11 @@ export class LeaveDisplayPage implements OnInit {
         }
       );
     }
+    onback()
+{
+    this._route.navigate(['/teacher-dashboarf']);
+}
+
     showrejected()
     {
       this.all=false;

@@ -1,8 +1,8 @@
 <ion-header>
     <ion-toolbar  color="primary">
         <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
+          <ion-icon name="arrow-round-back" (click)="onback()" style="height:30px;width:30px;"></ion-icon>
+        </ion-buttons>
       <ion-title>Chats</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -16,10 +16,10 @@
          
             <ion-tab-button (click)="showunviewed()" class="tab-item active" style="font-size: 15px;color:black;" mode="md" tabsHighlight="true" tabsPlacement="bottom">
               <!-- <ion-icon name="person"></ion-icon> -->
-              <ion-icon name="mail-unread"></ion-icon>
+              <ion-icon name="mail-unread" style="height: 25px;width: 25px;"></ion-icon>
             </ion-tab-button>
             <ion-tab-button (click)="showviewed()" style="font-size: 15px;color:black;">
-                <ion-icon name="mail-open"></ion-icon>
+                <ion-icon name="mail-open"  style="height: 25px;width: 25px;"></ion-icon>
               <!-- <ion-icon name="call"></ion-icon> -->
             </ion-tab-button>
           </ion-tab-bar>

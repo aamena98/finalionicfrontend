@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" >
+          <ion-icon name="arrow-round-back" (click)="onback()" style="height:30px;width:30px;"></ion-icon>
+
+        </ion-buttons>
+        <ion-title>My Remarks</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="tabs-striped tabs-background-positive tabs-color-light">
+        <ion-tabs>
+          <!-- Tab bar -->
+          <ion-tab-bar slot="top" class="dp">
+         
+            <ion-tab-button (click)="showremarks()" style="font-size: 15px;color:black;">
+                <ion-icon name="mail-unread" style="height: 25px;width: 25px;"></ion-icon>
+              <!-- <ion-icon name="call"></ion-icon> -->
+            </ion-tab-button>
+            <ion-tab-button (click)="showviewed()" class="tab-item active" style="font-size: 15px;color:black;" mode="md" tabsHighlight="true" tabsPlacement="bottom">
+              <!-- <ion-icon name="person"></ion-icon> -->
+              <ion-icon name="mail-open"  style="height: 25px;width: 25px;"></ion-icon>
+            </ion-tab-button>
+          </ion-tab-bar>
+        </ion-tabs>
+      </div>
+  <br>
+ <br>
+<div *ngIf="flag1">
+    <ion-card  *ngFor="let item of r_arr">
+        <ion-item>
+            <img src="http://localhost:3000/images/{{item.t_profilepic}}" style="width:50px; height: 50px;">
+          <!-- <ion-icon name="mail-unread" slot="start"></ion-icon> -->
+            <ion-button fill="outline" slot="end" (click)="updateStatus(item)">View</ion-button>
+            <br>
+            <!-- <ion-label><ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date"></ion-datetime></ion-label> -->
+        
+        </ion-item>
+      
+        <ion-card-content>
+            <ion-icon name="contact"></ion-icon> {{item.t_name}}<br>
+            <ion-icon name="mail-open"></ion-icon> {{item.r_description}}
+           <!-- &nbsp; &nbsp; &nbsp; &nbsp; <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date" slot="end"></ion-datetime> -->
+        </ion-card-content>
+      </ion-card>
+</div>
+
+<div *ngIf="flag2">
+    <ion-card  *ngFor="let item of v_arr">
+        <ion-item>
+            <img src="http://localhost:3000/images/{{item.t_profilepic}}" style="width:50px; height: 50px;">
+          <!-- <ion-icon name="mail-unread" slot="start"></ion-icon> -->
+            <ion-button fill="outline" slot="end" (click)="updateStatus(item)">View</ion-button>
+            <br>
+            <!-- <ion-label><ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date"></ion-datetime></ion-label> -->
+        
+        </ion-item>
+      
+        <ion-card-content>
+            <ion-icon name="contact"></ion-icon> {{item.t_name}}<br>
+            <ion-icon name="mail-open"></ion-icon> {{item.r_description}}
+           <!-- &nbsp; &nbsp; &nbsp; &nbsp; <ion-datetime displayFormat="DD/MM/YY" [(ngModel)]="item.r_date" slot="end"></ion-datetime> -->
+        </ion-card-content>
+      </ion-card>
+  </div>
+</ion-content>

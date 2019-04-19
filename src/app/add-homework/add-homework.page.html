@@ -1,49 +1,74 @@
 <ion-header>
     <ion-toolbar color="primary">
       <ion-buttons slot="start" >
-        <ion-menu-button></ion-menu-button>
+        <ion-icon name="arrow-round-back" (click)="onback()" style="height:30px;width:30px;"></ion-icon>
+
       </ion-buttons>
       <ion-title>Add Homework</ion-title>
     </ion-toolbar>
   </ion-header>
 <ion-content padding>
+  <form>
     <ion-item>
         <ion-label>Enter Class</ion-label>
-      <ion-select  placeholder="Enter Class" [(ngModel)]="h_class" name="h_class">
+      <ion-select  placeholder="Enter Class" h_class [(ngModel)]="h_class" name="h_class" required #h_classFormControl="ngModel">
         <ion-select-option *ngFor="let item of class_arr" [value]="item">
             {{item}}
         </ion-select-option>
       </ion-select>
+      <p style="color:red;" *ngIf="(h_classFormControl?.hasError('required')) && (h_classFormControl?.touched)">
+          *Please Select class!
+       </p>
     </ion-item>
+    
     <br>
     
     <ion-item>
         <ion-label>Enter Division</ion-label>
-      <ion-select  placeholder="Enter Division" [(ngModel)]="h_div" name="h_div">
+      <ion-select  placeholder="Enter Division" [(ngModel)]="h_div" h_div name="h_div" required #h_divFormControl="ngModel">
     <ion-select-option *ngFor="let item of div_arr" [value]="item">
         {{item}}
     </ion-select-option>
       </ion-select>
+      <p style="color:red;" *ngIf="(h_divFormControl?.hasError('required')) && (h_divFormControl?.touched)">
+          *Please Select Division!
+       </p>
     </ion-item>
+    
     <br>
       <ion-item>
       <ion-label>Enter Date:</ion-label>
-      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="h_date" name="h_date"></ion-datetime>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="h_date" h_date required #h_dateFormControl="ngModel" name="h_date"></ion-datetime>
       <ion-icon name="calendar" right></ion-icon>
+      <p style="color:red;" *ngIf="(h_dateFormControl?.hasError('required')) && (h_dateFormControl?.touched)">
+          *Please Select date!
+       </p>
     </ion-item>
+    
     <br>
     <ion-item>
         <ion-label>Enter Subject</ion-label>
    
-      <ion-input type="text" [(ngModel)]="h_subject"></ion-input>
-      </ion-item>
+      <ion-input type="text" [(ngModel)]="h_subject" h_subject required #h_subjectFormControl="ngModel" name="h_subject"></ion-input>
+      <p style="color:red;" *ngIf="(h_subjectFormControl?.hasError('required')) && (h_subjectFormControl?.touched)">
+          *Please Enter Subject!
+       </p>  
+    </ion-item>
     <br>
-    <ion-label>Enter HomeWork Description</ion-label><br>  
+    <ion-label>HomeWork Description</ion-label><br>  
     <ion-item>
            
-      <ion-textarea  [(ngModel)]="h_description"></ion-textarea>
+      <ion-textarea  [(ngModel)]="h_description" h_description required #h_descriptionFormControl="ngModel" name="h_description"></ion-textarea>
+      <p style="color:red;" *ngIf="(h_descriptionFormControl?.hasError('required'))  && (h_descriptionFormControl?.touched)">
+          *Please Enter Description!
+       </p>y
     </ion-item>
-<br>
-    <ion-button style="width:80%; border-radius:20%;" class="center ion-buttons " (click)="addhw()">Add Homework</ion-button>
     
+<br>
+    <ion-button style="width:80%; border-radius:20%;"
+    [disabled]="(h_descriptionFormControl?.hasError('required')) || (h_subjectFormControl?.hasError('required')) || (h_dateFormControl?.hasError('required')) || (h_divFormControl?.hasError('required')) || (h_classFormControl?.hasError('required'))"
+    class="center ion-buttons " (click)="addhw()">Add Homework</ion-button>
+  </form>
 </ion-content>
+
+

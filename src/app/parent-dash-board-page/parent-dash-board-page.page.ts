@@ -51,7 +51,7 @@ export class ParentDashBoardPagePage implements OnInit {
     this._router.navigate(['/attendance']);
   }
   onRemark(){
-    this._router.navigate(['/homework']);
+    this._router.navigate(['/display-remark']);
   }
   onSyllabus(){
     this._router.navigate(['/']);
@@ -81,6 +81,10 @@ export class ParentDashBoardPagePage implements OnInit {
   }
   onMyleave(){
     this._router.navigate(['/leave']);
+  }
+  onLeaveDisplay()
+  {
+    this._router.navigate(['/student-leave-display']);
   }
   onLocation(){
     this._router.navigate(['/homework']);

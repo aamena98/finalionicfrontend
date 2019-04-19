@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-icon name="arrow-round-back" (click)="onback()" style="height:30px;width:30px;"></ion-icon>
+
+        </ion-buttons>
+    <ion-title>Add Remark</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="flag1">  
+  <ion-item>
+        <ion-label>Enter Class</ion-label>
+      <ion-select  placeholder="Enter Class" [(ngModel)]="class" h_class #h_classFormControl="ngModel" name="h_class" required>
+        <ion-select-option *ngFor="let item of class_arr" [value]="item">
+            {{item}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p style="color:red;" *ngIf="(h_classFormControl?.hasError('required')) && (h_classFormControl?.touched)">
+        *Please Select Class!
+     </p>
+    <br>
+    
+    <ion-item>
+        <ion-label>Enter Division</ion-label>
+      <ion-select  placeholder="Enter Division" [(ngModel)]="div" h_div #h_divFormControl="ngModel" name="h_div" required>
+    <ion-select-option *ngFor="let item of div_arr" [value]="item">
+        {{item}}
+    </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p style="color:red;" *ngIf="(h_divFormControl?.hasError('required')) && (h_divFormControl?.touched)">
+        *Please Select Division!
+     </p>
+    <br>
+    <ion-button style="width:80%; border-radius:20%;"  [disabled]="h_classFormControl?.hasError('required') || h_divFormControl?.hasError('required')" class="center ion-buttons " (click)="getstu()">Get Students</ion-button>
+  </div>
+
+  <div *ngIf="flag2">
+  
+      <h1>Students List</h1>
+    <br>
+    <table class="table">
+      <thead>
+        <th> </th>
+        <th>Roll No.</th>
+        <th>Name</th>
+        <th>Add Remark</th>
+      </thead>
+      <tr  *ngFor="let item of stu_arr;let i=index">
+        <td>
+          <img src="http://localhost:3000/images/{{item.s_profilepic}}" style="width:50px; height: 50px; border-radius: 50%;">
+               
+        </td>
+        <td>
+                 {{item.s_roll_no}}
+        </td>
+                    <td>
+                      {{item.s_sname}}
+                    </td>
+                     <td>
+          <ion-button style="border-radius:20%;" (click)="addremark(item.fk_u_id)"><ion-icon name="add"></ion-icon></ion-button>
+
+        </td>           
+                </tr>
+  
+    </table>
+    <br><br>
+  </div>  
+  
+</ion-content>

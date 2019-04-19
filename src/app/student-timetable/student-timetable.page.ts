@@ -24,5 +24,9 @@ export class StudentTimetablePage implements OnInit {
       }
     )
   }
-
+  onback()
+  {
+      this._route.navigate(['/parent-dash-board-page']);
+  }
+  
 }

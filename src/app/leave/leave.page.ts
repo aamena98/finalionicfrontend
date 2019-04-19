@@ -1,8 +1,9 @@
+declare var require:any;
 import { Component, OnInit } from '@angular/core';
 import { Leave } from "../../Classes/Leave";
 import { Validators, FormBuilder, FormGroup, FormControl, ControlContainer } from '@angular/forms';
 import { LeaveService } from "../Services/leave.service";
-
+import { Router } from "@angular/router";
 var moment=require('moment');
 moment().format();
 @Component({
@@ -30,8 +31,8 @@ export class LeavePage implements OnInit {
   leave_type:FormControl;
   userData={"to_date":"","from_date":"","leave_description":""};
 
-  constructor(private _ser:LeaveService) { 
-    this.minDate = moment(Date.now()).format("YYYY-MM-DD");
+  constructor(private _ser:LeaveService,private _route:Router) { 
+   this.minDate = moment(Date.now()).format("YYYY-MM-DD");
   }
 
   ngOnInit() {
@@ -41,7 +42,11 @@ export class LeavePage implements OnInit {
       leave_type:new FormControl('',[Validators.required]),
      });
   }
-
+  onback()
+  {
+      this._route.navigate(['/parent-dash-board-page']);
+  }
+  
   sendLeave()
   {
     

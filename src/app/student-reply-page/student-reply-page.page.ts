@@ -1,3 +1,4 @@
+declare var require:any;
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ParentInteractService } from '../Services/parent-interact.service';
@@ -58,15 +59,19 @@ export class StudentReplyPagePage implements OnInit {
   
   
     }
-  
+    onback()
+    {
+        this._route.navigate(['/parent-chat-display']);
+    }
+    
     sendReply()
   {
-  this.m_date=moment(Date.now()).format("YYYY-MM-DD");
+ this.m_date=moment(Date.now()).format("YYYY-MM-DD");
     this._ser1.sendReplyMessage(new reply_Message(this.m_id,this.m_reply,this.r_fk_u_id,this.m_date,this.r_fk_t_id)).subscribe(
       (data:any)=>
       {
      console.log(data);
-        this._route.navigate(['/teacher-interaction']);
+        this._route.navigate(['/parent-dash-board-page']);
         // this.flag=false;
         // this.r_flag=true;
         // this.b_flag=false;

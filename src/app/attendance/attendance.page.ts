@@ -3,7 +3,7 @@ import { AttendanceService } from '../Services/attendance.service';
 import { NavController, ModalController, AlertController } from '@ionic/angular';
 import * as moment from 'moment';
 import { removeDebugNodeFromIndex } from '@angular/core/src/debug/debug_node';
-
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-attendance',
   templateUrl: './attendance.page.html',
@@ -11,7 +11,7 @@ import { removeDebugNodeFromIndex } from '@angular/core/src/debug/debug_node';
 })
 export class AttendancePage implements OnInit {
 
-fk_u_id:number=parseInt(localStorage.getItem('user_id'));
+fk_u_id:number=201898;
 eventSource=[];
 student_id:string;
 viewTitle:string;
@@ -30,10 +30,14 @@ calendar={
   currentDate:new Date()
 };
 
-constructor(public _ser:AttendanceService,navctrl:NavController,private modalctrl:ModalController,private alertctrl:AlertController){}
+constructor(private _route:Router,public _ser:AttendanceService,navctrl:NavController,private modalctrl:ModalController,private alertctrl:AlertController){}
 
 loadEvents() {
     this.eventSource = this.createRandomEvents();
+}
+onback()
+{
+    this._route.navigate(['/parent-dash-board-page']);
 }
   ngOnInit() {
    // this.student_id=localStorage.getItem('student_id');
@@ -70,11 +74,12 @@ loadEvents() {
 this._ser.getAttendanceCount(this.fk_u_id).subscribe(
     (data:any)=>
     {
+        console.log("this is object");
         console.log(data);
-        this.p_days=parseInt(data[0]);
+        console.log('áttendance'+data[0].stu_attendance)
+        this.p_days=data[0].stu_attendance;
         console.log(this.p_days);
-        this.a_days=this.t_days-this.a_days;
-        
+        this.a_days=this.t_days-this.p_days;        
     }
 );
     

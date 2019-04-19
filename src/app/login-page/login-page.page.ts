@@ -64,6 +64,7 @@ export class LoginPagePage implements OnInit {
     this._ser.onLogin(new User(parseInt(this.user_id.toString()),this.user_password.toString(),this.user_type.toString())).subscribe(
       (data:User[])=>{
         localStorage.setItem('user_id',this.user_id.toString());
+        localStorage.setItem('user_type',this.user_type.toString());        
         console.log(data);
         if(data.length==1){
           alert('Login Successfully!!!');
@@ -91,11 +92,12 @@ export class LoginPagePage implements OnInit {
     this._ser.getStudentByUserId(parseInt(this.user_id.toString())).subscribe(
       (data:any[])=>{
         
-        localStorage.setItem('fk_u_id',data[0].fk_u_id);
+       // localStorage.setItem('fk_u_id',data[0].fk_u_id);
         localStorage.setItem('class',data[0].s_class.toString());
         localStorage.setItem('img_path',data[0].s_profilepic);
         localStorage.setItem('div',data[0].s_div);
-        console.log(data[0].s_class);
+        
+       // console.log(data[0].s_class);
       }
     );
   }

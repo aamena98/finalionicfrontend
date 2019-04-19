@@ -1,3 +1,4 @@
+declare var require:any;
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { TeacherInteractionService } from '../Services/teacher-interaction.service';
@@ -65,6 +66,12 @@ console.log(this.m_arr);
 
 
   }
+  onback()
+  {
+      this._route.navigate(['/parent-dash-board-page']);
+  }
+  
+
   Reply(item:student_interact_display)
   {
     this.u_r_id=item.r_id;

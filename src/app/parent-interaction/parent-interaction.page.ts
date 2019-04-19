@@ -1,7 +1,9 @@
+declare var require:any;
 import { Component, OnInit } from '@angular/core';
 import { ParentInteractService } from '../Services/parent-interact.service';
 import { Teacher } from '../../Classes/teacher';
 import { Router } from '@angular/router';
+
 import { interact } from 'src/Classes/interaction';
 import { interact_display } from "../../Classes/Interact_Display";
 import { Validators, FormBuilder, FormGroup, FormControl, ControlContainer } from '@angular/forms';
@@ -47,10 +49,14 @@ fk_user_id:number=parseInt(localStorage.getItem('user_id'));
     return null;
     
     }
-    
+    onback()
+{
+    this._route.navigate(['/parent-dash-board-page']);
+}
+
   sendmsg()
   {
- this.m_date=moment(Date.now()).format("YYYY-MM-DD");
+this.m_date=moment(Date.now()).format("YYYY-MM-DD");
     console.log(this.m_date);
     console.log(this.fk_u_id);
     console.log(this.fk_t_id);

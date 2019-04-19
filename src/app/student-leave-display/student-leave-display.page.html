@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-icon name="arrow-round-back" (click)="onback()" style="height:30px;width:30px;"></ion-icon>
+        </ion-buttons>
+    <ion-title>My Leaves</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card *ngFor="let item of a_l_arr">
+  <ion-card-header>
+    <ion-button expand="block" color="primary">Accepted</ion-button>
+  </ion-card-header>
+<ion-card-content>
+<ion-label>{{item.l_description}}</ion-label>
+</ion-card-content>
+</ion-card>
+
+<ion-card *ngFor="let item of a_l_arr">
+    <ion-card-header>
+        <ion-button expand="block" color="danger">Rejected</ion-button>
+    </ion-card-header>
+  <ion-card-content>
+  <ion-label>{{item.l_description}}</ion-label>
+  </ion-card-content>
+  </ion-card>
+</ion-content>

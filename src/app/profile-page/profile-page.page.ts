@@ -23,5 +23,9 @@ export class ProfilePagePage implements OnInit {
    );
   }
 
-
+  onback()
+  {
+      this._router.navigate(['/parent-dash-board-page']);
+  }
+  
 }

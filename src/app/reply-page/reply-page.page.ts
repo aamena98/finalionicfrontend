@@ -1,3 +1,4 @@
+declare var require:any;
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { TeacherInteractionService } from '../Services/teacher-interaction.service';
@@ -25,6 +26,11 @@ message_arr:interact[]=[];
 reply_arr:reply_Message[]=[];
 
 constructor(private _aroute:ActivatedRoute,private _ser:TeacherInteractionService,private _route:Router) { }
+
+onback()
+{
+    this._route.navigate(['/teacher-interaction']);
+}
 
   ngOnInit() {
     this.m_id=this._aroute.snapshot.params['id'];

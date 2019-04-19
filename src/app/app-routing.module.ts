@@ -39,6 +39,13 @@ const routes: Routes = [
   { path: 'teacher-dashboarf', loadChildren: './teacher-dashboarf/teacher-dashboarf.module#TeacherDashboarfPageModule' },
   { path: 'take-attendance', loadChildren: './take-attendance/take-attendance.module#TakeAttendancePageModule' },
   { path: 'add-homework', loadChildren: './add-homework/add-homework.module#AddHomeworkPageModule' },
+  { path: 'teacher-profile', loadChildren: './teacher-profile/teacher-profile.module#TeacherProfilePageModule' },
+  { path: 'teacher-timetable', loadChildren: './teacher-timetable/teacher-timetable.module#TeacherTimetablePageModule' },
+  { path: 'add-remark', loadChildren: './add-remark/add-remark.module#AddRemarkPageModule' },
+  { path: 'add-remark-desc/:id', loadChildren: './add-remark-desc/add-remark-desc.module#AddRemarkDescPageModule' },
+  { path: 'display-remark', loadChildren: './display-remark/display-remark.module#DisplayRemarkPageModule' },
+  { path: 'student-leave-display', loadChildren: './student-leave-display/student-leave-display.module#StudentLeaveDisplayPageModule' },
+  { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
 ];
 
 @NgModule({

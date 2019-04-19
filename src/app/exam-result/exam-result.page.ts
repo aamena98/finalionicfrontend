@@ -3,7 +3,7 @@ import { examResult } from "../../Classes/examResult";
 import { ExamResultService } from "../Services/exam-result.service";
 import { stringify } from '@angular/compiler/src/util';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
-
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-exam-result',
   templateUrl: './exam-result.page.html',
@@ -46,7 +46,11 @@ g5:string;
 finalgrade:string;
 
 grade:string;
-constructor(private _ser:ExamResultService) { }
+constructor(private _route:Router,private _ser:ExamResultService) { }
+onback()
+{
+    this._route.navigate(['/parent-dash-board-page']);
+}
 
   ngOnInit() {
 

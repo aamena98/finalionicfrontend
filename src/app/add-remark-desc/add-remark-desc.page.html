@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-icon name="arrow-round-back" (click)="onback()" style="height:30px;width:30px;"></ion-icon>
+
+        </ion-buttons>
+    <ion-title>Remark Description</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-label>Enter Description</ion-label>
+<ion-item> 
+  <ion-textarea [(ngModel)]="r_desc" r_desc required #r_descFormControl="ngModel">
+  </ion-textarea>
+</ion-item>
+<p style="color:red;" *ngIf="(r_descFormControl?.hasError('required')) && (r_descFormControl?.touched)">
+    *Please Enter description!
+ </p>
+<ion-button style="width:80%; border-radius:20%;" class="center ion-buttons " [disabled]="r_descFormControl?.hasError('required')" (click)="addRemark()">Add Remark</ion-button>
+</ion-content>

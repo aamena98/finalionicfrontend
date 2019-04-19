@@ -1,7 +1,8 @@
 <ion-header>
     <ion-toolbar color="primary">
       <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
+        <ion-icon name="arrow-round-back" (click)="onback()" style="height:30px;width:30px;"></ion-icon>
+
       </ion-buttons>
       <ion-title>
          Reply
@@ -48,10 +49,14 @@
                           
             <ion-item>
         <ion-label position="floating">Enter your Reply</ion-label>
-        <ion-textarea [(ngModel)]="m_reply"></ion-textarea>
-    </ion-item><br>
+        <ion-textarea [(ngModel)]="m_reply" m_reply name="m_reply" #m_replyFormControl="ngModel" required ></ion-textarea>
+    </ion-item>
+    <p style="color:red;" *ngIf="(m_replyFormControl?.hasError('required')) && (m_replyFormControl?.touched)">
+        *Please Message!
+     </p>
+    <br>
     
     <!-- <ion-button color="secondary" (click)="sendReply()">Send Reply</ion-button>   -->
-    <ion-button expand="block" fill="outline" color="primary" (click)="sendReply()">Send reply        <ion-icon name="send"></ion-icon> 
+    <ion-button expand="block" fill="outline" [disabled]="m_replyFormControl?.hasError('required')" color="primary" (click)="sendReply()">Send reply        <ion-icon name="send"></ion-icon> 
       </ion-button>
 </ion-content>

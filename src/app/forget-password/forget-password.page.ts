@@ -22,7 +22,11 @@ export class ForgetPasswordPage implements OnInit {
   user_type:string;
   
   constructor(public _router:Router,private _ser:LoginServicesService) { }
-
+  onback()
+  {
+      this._router.navigate(['/parent-dash-board-page']);
+  }
+  
   ngOnInit() {
   }
   public type = 'password';
@@ -50,23 +54,52 @@ export class ForgetPasswordPage implements OnInit {
     console.log(this.user_id);
   }
 
+  // onforget()
+  // {
+  //   this._ser.getStudentByUserId(this.user_id).subscribe(
+  //     (data:Student[])=>{
+  //       this.password=data[0].s_password;
+  //       console.log(data);
+  //       this._ser.onEmail(new email(this.email_id,"Password of user id: "+this.user_id,"Your password is: "+this.password)).subscribe(
+  //         (data:email)=>{
+  //           console.log(data);
+  //           alert("Email successfully send!!");
+            
+  //         }
+  //       )
+  //     }
+  //   )
+  //   this._router.navigate(['/login-page']);
+  // }
+
   onforget()
   {
     this._ser.getStudentByUserId(this.user_id).subscribe(
       (data:Student[])=>{
+        if(data[0].s_email==this.email_id)
+        {
         this.password=data[0].s_password;
         console.log(data);
         this._ser.onEmail(new email(this.email_id,"Password of user id: "+this.user_id,"Your password is: "+this.password)).subscribe(
           (data:email)=>{
             console.log(data);
             alert("Email successfully send!!");
-            
-          }
-        )
+            this._router.navigate(['/login-page']);
+          })
+        }
+        else
+        {
+          this.email_id="";
+          alert("Please enter registered email id!");
+          this._router.navigate(['/forget-password']);
+          
+        }
+        
       }
     )
-    this._router.navigate(['/login-page']);
+    
   }
+
 
   onCancel()
   {

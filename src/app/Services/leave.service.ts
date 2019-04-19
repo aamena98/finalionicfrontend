@@ -1,3 +1,4 @@
+declare var require:any;
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 var moment=require('moment');
@@ -14,6 +15,8 @@ leaverejceturl:string="http://localhost:3000/leaveReject/";
 leavependingurl:string="http://localhost:3000/pendingleaves/";
 viewaccept:string="http://localhost:3000/viewAcceptedLeave/";
 viewreject:string="http://localhost:3000/viewRejectedLeave/";
+stuaccepturl:string="http://localhost:3000/acceptstuleave/";
+sturejecturl:string="http://localhost:3000/rejectstuleave/";
   constructor(public _http:HttpClient) { }
 
 
@@ -40,7 +43,7 @@ viewreject:string="http://localhost:3000/viewRejectedLeave/";
   {
    let body=JSON.stringify(item);
   let h=new HttpHeaders().set('Content-Type','application/json');
-  let ldate=moment(item.l_date).format("YYYY-MM-DD");
+ let ldate=moment(item.l_date).format("YYYY-MM-DD");
   console.log(ldate);
     return this._http.put(this.leaveaccepturl+item.fk_u_id+"/"+ldate,body,{headers:h});
   }
@@ -71,5 +74,13 @@ viewreject:string="http://localhost:3000/viewRejectedLeave/";
   getAllRejected(fk_t_id:number)
   {
     return this._http.get(this.viewreject+fk_t_id);  
+  }
+  getAcceptedLeavesforStudent(fk_u_id:number)
+  {
+    return this._http.get(this.stuaccepturl+fk_u_id);
+  }
+  getRejectedLeavesforStudent(fk_u_id:number)
+  {
+    return this._http.get(this.sturejecturl+fk_u_id);
   }
 }

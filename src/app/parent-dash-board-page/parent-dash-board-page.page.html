@@ -48,7 +48,7 @@
 
     <ion-row>
       <ion-col>
-          <a (click)="onAttendance()">
+          <a (click)="onRemark()">
         <ion-card text-center no-padding color="light">
           <ion-icon name="list"></ion-icon>
           <h6>Remark</h6>
@@ -102,25 +102,7 @@
             </a>
           </ion-col>
       </ion-row>
-
-        <ion-row>
-          <ion-col>
-              <a (click)="onPastpapers()">
-            <ion-card text-center no-padding color="light" (click)="onPastpapers()">
-              <ion-icon name="paper"></ion-icon>
-              <h6>Past <br>Papers</h6>
-            </ion-card>
-            </a>
-          </ion-col>
-          <ion-col>
-              <ion-card text-center no-padding color="light">
-                <ion-icon name="photos"></ion-icon>
-                <h6>Photo<br>Gallery</h6>
-              </ion-card>
-            </ion-col>
-        </ion-row>
-
-        <ion-row>
+    <ion-row>
             <ion-col>
                 <a (click)="onTeacherInteraction()">
               <ion-card text-center no-padding color="light">
@@ -153,7 +135,7 @@
                   <a (click)="onLocation()">
                       <ion-card text-center no-padding color="light">
                         <ion-icon name="pin"></ion-icon>
-                        <h6>school<br>Location</h6>
+                        <h6>School<br>Location</h6>
                       </ion-card>
                       </a>
               </ion-col>
@@ -166,6 +148,15 @@
                   <ion-card text-center no-padding color="light">                  
                     <ion-icon name="contacts"></ion-icon>
                     <h6>Chats</h6>
+                  </ion-card>
+                  </a>
+                </ion-col>
+
+                <ion-col>
+                    <a (click)="onLeaveDisplay()">
+                  <ion-card text-center no-padding color="light">                  
+                      <ion-icon name="document"></ion-icon>
+                    <h6>Leave Display</h6>
                   </ion-card>
                   </a>
                 </ion-col>

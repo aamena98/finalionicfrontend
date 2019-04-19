@@ -14,6 +14,7 @@ export class TeacherInteractionService {
   msgurl:string='http://localhost:3000/interact/';
 v_msgurl:string='http://localhost:3000/viewedMessages/';
 updateurl:string='http://localhost:3000/reply/';
+getTeacher:string='http://localhost:3000/teacher/';
   url1:string;
   url2:string;
   constructor(public _http:HttpClient) { }
@@ -62,5 +63,9 @@ updateStatus(item)
   let h=new HttpHeaders().set('Content-Type','application/json');
     return this._http.put(this.updateurl+item.m_id,body,{headers:h});
   
+}
+getTeacherByUserId(id:number)
+{
+  return this._http.get(this.getTeacher+id);
 }
 }

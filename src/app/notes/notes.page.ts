@@ -39,7 +39,11 @@ export class NotesPage implements OnInit {
     );
 
   }
-  
+  onback()
+{
+    this._route.navigate(['/parent-dash-board-page']);
+}
+
 
   openLocalPdf()
   {
